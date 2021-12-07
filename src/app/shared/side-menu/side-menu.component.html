@@ -1,0 +1,50 @@
+<h2 class="text-center"> Template </h2>
+<hr>
+
+<ul class="list-group" id="template-ul">
+
+    <li 
+        *ngFor="let item of templateMenu"
+        [routerLink]="[item.ruta]"
+        routerLinkActive="active"
+        class="list-group-item mt-2"
+        id="li-sidebar"
+    >
+        {{item.nombre}}
+
+    </li>
+</ul>
+
+<h2 class="text-center mt-4"> Reactive </h2>
+<hr>
+
+<ul class="list-group" id="dinamicos-ul">
+
+    <li 
+        *ngFor="let item of reactiveMenu"
+        [routerLink]="[item.ruta]"
+        routerLinkActive="active"
+        class="list-group-item mt-2"
+        id="li-sidebar"
+    >
+        {{item.nombre}}
+
+    </li>
+</ul>
+
+<h2 class="text-center mt-4"> Validaciones </h2>
+<hr>
+
+<ul class="list-group" id="validaciones-ul">
+
+    <li 
+        *ngFor="let item of authMenu"
+        [routerLink]="[item.ruta]"
+        routerLinkActive="active"
+        class="list-group-item mt-2"
+        id="li-sidebar"
+    >
+        {{item.nombre}}
+
+    </li>
+</ul>

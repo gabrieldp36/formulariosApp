@@ -1,0 +1,214 @@
+<h2>Validaciones Reactivas</h2>
+<hr>
+
+<div class="row">
+
+    <div class="col">
+
+        <form autocomplete="off" [formGroup]="miFormulario">
+            
+            <!-- nombre -->
+
+            <div class="row mb-3">
+
+                <label class="col-sm-3 col-form-label text-center"> Nombre* </label>
+
+                <div class="col-sm-9">
+
+                    <input 
+                        type="text"
+                        formControlName="nombre"
+                        class="form-control mb-1 input-validaciones"
+                        placeholder="Nombre del usuario"
+                      
+                    >
+                    <span
+                    
+                        *ngIf="validatorService.validarCampos( miFormulario, 'nombre', 'required')"
+                        class="form-text text-danger">
+
+                        El campo es obligatorio
+                    </span>
+
+                    <span
+                    
+                        *ngIf="validatorService.validarCampos( miFormulario, 'nombre', 'pattern')"
+                        class="form-text text-warning">
+
+                        El texto ingresado debe tener formato de nombre y apellido
+                    </span>
+
+                </div>
+
+            </div>
+
+            <!-- E-mail -->
+
+            <div class="row mb-3">
+
+                <label class="col-sm-3 col-form-label text-center"> Correo* </label>
+
+                <div class="col-sm-9">
+
+                    <input 
+                        type="email"
+                        formControlName="email"
+                        class="form-control mb-1 input-validaciones"
+                        placeholder="E-mail del usuario"
+                        autocomplete="nope"
+                    >
+
+                    <span
+                        
+                        *ngIf="validatorService.validarCampos( miFormulario, 'email', 'required')"
+                        class="form-text text-danger">
+
+                        El campo es obligatorio
+                    </span>
+
+                    <span
+                    
+                        *ngIf="validatorService.validarCampos( miFormulario, 'email', 'pattern')"
+                        class="form-text text-warning">
+
+                        Ingrese un correo válido
+                    </span>
+
+                    <span
+                    
+                        *ngIf="validatorService.validarCampos( miFormulario, 'email', 'emailTomado')"
+                        class="form-text text-warning">
+
+                        El correo ya se encuentra registrado
+                    </span>
+
+                </div>
+
+            </div>
+
+            <!-- Username -->
+
+            <div class="row mb-3">
+
+                <label class="col-sm-3 col-form-label text-center"> Username* </label>
+
+                <div class="col-sm-9">
+
+                    <input 
+                        type="text"
+                        formControlName="username"
+                        class="form-control mb-1 input-validaciones"
+                        placeholder="Nombre código del usuario"
+                    >
+                    <span
+                            
+                        *ngIf="validatorService.validarCampos( miFormulario, 'username', 'required')"
+                        class="form-text text-danger">
+
+                        El campo es obligatorio
+                    </span>
+
+                    <span
+                    
+                        *ngIf="validatorService.validarCampos( miFormulario, 'username', 'noShijonage')"
+                        class="form-text text-warning">
+
+                        El username no puede ser Shijonage
+                    </span>
+
+                </div>
+
+            </div>
+
+            <!-- Password -->
+
+            <div class="row mb-3">
+
+                <label class="col-sm-3 col-form-label text-center"> Password* </label>
+
+                <div class="col-sm-9">
+
+                    <input 
+                        type="password"
+                        formControlName="password"
+                        class="form-control mb-1 input-validaciones"
+                        placeholder="Contraseña del usuario"
+                    >
+                    <span
+                            
+                        *ngIf="validatorService.validarCampos( miFormulario, 'password', 'required')"
+                        class="form-text text-danger">
+
+                        El campo es obligatorio
+                    </span>
+
+                    <span
+                            
+                        *ngIf="validatorService.validarCampos( miFormulario, 'password', 'pattern')"
+                        class="form-text text-warning">
+
+                        La contraseña debe contener mínimo ocho caracteres, al menos una letra mayúscula, una letra minúscula y un número, sin caracteres especiales
+                    </span>
+
+                </div>
+
+            </div>
+
+            
+            <!-- Password 2 -->
+
+            <div class="row mb-3">
+
+                <label class="col-sm-3 col-form-label text-center"></label>
+
+                <div class="col-sm-9">
+
+                    <input 
+                        type="password"
+                        formControlName="password2"
+                        class="form-control mb-1 input-validaciones"
+                        placeholder="Confirme su contraseña"
+                    >
+                    <span
+                            
+                        *ngIf="validatorService.validarCampos( miFormulario, 'password2', 'noIguales')"
+                        class="form-text text-danger">
+
+                        Las contraseñas deben ser iguales
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col">
+
+                    <button 
+
+                        type="button"
+                        class="btn btn-success float-end"
+                        id="boton-dinamicos"
+                        [disabled]="miFormulario.pending"
+                        (click)="crearUsuario()"
+                    >
+
+                        Registrar
+                    </button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<div style="margin-left: 5px;">
+
+    <h5> Formulario válido:</h5>
+    <pre>{{miFormulario.valid}}</pre>
+
+    <h5> Valor del Formulario:</h5>
+    <pre>{{miFormulario.value | json}}</pre>
+
+</div>

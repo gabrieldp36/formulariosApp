@@ -1,1 +1,183 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+
+    color: white; 
+}
+
+.app-background {
+
+    background-color: #303030 !important;
+}
+
+#li-sidebar {
+
+    border-width: 0px;
+    border-radius: 20px;
+    width: 100%;
+    text-align: center;
+    color: rgb(19, 18, 18);
+}
+
+#template-ul.list-group li.active {
+
+    background-color: #198754;
+    color: white;
+}
+
+#template-ul li:hover {
+
+    background-color: #198754;
+    color: white;
+}
+
+#input-basicos {
+
+    border-radius: 5px;
+    border-width: 0px;
+}
+
+#input-basicos:focus {
+    
+    box-shadow: 0 0 0 3.5px #7b1fa2;
+}
+
+#dinamicos-ul.list-group li.active {
+
+    color: white;
+}
+
+#dinamicos-ul li:hover {
+
+    background-color: rgba(13, 110, 253);
+    color: white;
+}
+
+#input-dinamicos {
+
+    border-radius: 5px;
+    border-width: 0px;
+}
+
+#input-dinamicos:focus {
+    
+    box-shadow: 0 0 0 3.5px #69efae;
+}
+
+#boton-dinamicos {
+
+    box-shadow: 0px 0px 3px 4px rgba(0.21, 0.21, 0.21, 0.21), 0px 0px 3px 4px rgba(0.24, 0.24, 0.24, 0.24);
+    background-color: #7b1fa2;
+    border-color: #7b1fa2;
+    color: white;
+}
+
+#boton-dinamicos:hover {
+
+    background: rgba(123,31,162,0.75);
+    border-color: rgba(123,31,162,0.75);
+}
+
+#boton-dinamicos:active {
+
+    background: rgba(123,31,162,0.55);
+    border-color: rgba(123,31,162,0.55);
+}
+
+#button-input-dinamicos {
+
+    box-shadow: none;  
+}
+
+#button-input-dinamicos:active {
+
+    background: rgba(25,135,84,0.8);
+    border-color: rgba(25,135,84,0.8);
+}
+
+#button-input-delete:active {
+
+    background: rgba(220,53,69,0.8);
+    border-color: rgba(220,53,69,0.8)
+}
+
+#button-input-delete {
+
+    box-shadow: none;  
+}
+
+.radio-item input[type=radio]:checked {
+
+    background-color: #69efae;
+    border-color: #69efae;
+    box-shadow: none;
+}
+
+.radio-item input[type=radio]:active {
+
+    box-shadow: none;
+}
+
+.switch-item input[type=checkbox]:checked {
+
+    background-color: #7b1fa2;
+    border-color: #7b1fa2;
+    box-shadow: none;
+}
+
+.switch-item input[type=checkbox]:active {
+
+    box-shadow: none;
+}
+
+
+.check-item input[type=checkbox]:checked {
+
+    background-color: #ffe173;
+    border-color: #ffe173;
+    box-shadow: none;
+}
+
+.check-item input[type=checkbox]:active {
+
+    box-shadow: none;
+}
+
+#boton-switches {
+
+    box-shadow: 0px 0px 3px 4px rgba(0.21, 0.21, 0.21, 0.21), 0px 0px 3px 4px rgba(0.24, 0.24, 0.24, 0.24);
+}
+
+
+#boton-switches:hover {
+
+    background: rgba(13,202,240,0.75);
+    border-color: rgba(13,202,240,0.75);
+}
+
+#boton-switches:active {
+
+    background: rgba(13,202,240,0.55);
+    border-color: rgba(13,202,240,0.55);
+}
+
+#validaciones-ul.list-group li.active {
+    
+    background-color: #7b1fa2;
+    color:white
+}
+
+#validaciones-ul li:hover {
+    
+    background-color: #7b1fa2;
+    color:white
+}
+
+.input-validaciones {
+
+    border-radius: 5px;
+    border-width: 0px;
+}
+
+.input-validaciones:focus {
+    
+    box-shadow: 0 0 0 3.5px #4651f0;
+}

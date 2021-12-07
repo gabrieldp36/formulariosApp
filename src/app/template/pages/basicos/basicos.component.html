@@ -1,0 +1,130 @@
+<h2> Template: Básicos </h2>
+<hr>
+
+<div class="row mb-4">
+
+    <div class="col">
+
+        <form 
+            (ngSubmit)="guardar()"
+            #miFormulario="ngForm" 
+            autocomplete="off"> 
+
+            <!-- Campo de producto -->
+
+            <div class="row mb-3">
+
+                <label class="col-sm-3 col-form-label text-center"> Producto* </label>
+
+                <div class="col-sm-9">
+                    <input 
+                        type="text"
+                        placeholder="Nombre del producto"
+                        name="producto"
+                        ngModel
+                        class="form-control"
+                        id="input-basicos"
+                        required
+                        minlength="3"
+                    >
+                    <span 
+                        *ngIf="validatorService.validarCamposTemple(miFormulario, 'producto', 'minlength')"
+                        class="form-text text-danger"> 
+
+                        El campo debe contener al menos tres caracteres 
+                    </span>
+                </div>
+            </div>
+
+             <!-- Campo de precio -->
+
+            <div class="row mb-4">
+
+                <label class="col-sm-3 col-form-label text-center"> Precio* </label>
+
+                <div class="col-sm-9">
+                    <input 
+                        type="number"
+                        placeholder="Precio del producto"
+                        name="precio"
+                        ngModel
+                        class="form-control"
+                        id="input-basicos"
+                        required
+                        min="0"
+                    >
+                    <span 
+                        *ngIf="validatorService.validarCamposTemple(miFormulario, 'precio', 'required')"
+                        class="form-text text-danger"> 
+                    
+                        El precio debe ser igual o mayor a cero
+                    </span>
+                </div>
+            </div>
+
+            <!-- Campo de stock -->
+
+            <div class="row mb-3">
+
+                <label class="col-sm-3 col-form-label text-center"> Stock* </label>
+
+                <div class="col-sm-9">
+                    <input 
+                        type="number"
+                        placeholder="Stock del producto"
+                        name="stock"
+                        ngModel
+                        class="form-control"
+                        customMin
+                        [minimo]="0"
+                        id="input-basicos"
+                        required
+                    >
+                    <span 
+                        *ngIf="validatorService.validarCamposTemple(miFormulario, 'stock', 'customMin')"
+                        class="form-text text-danger"> 
+                
+                        El stock debe ser igual o mayor a cero
+                </span>
+                </div>
+            </div>
+
+            <div>
+                <div class="row">
+                    <div class="col">
+
+                        <button 
+
+                            type="submit"
+                            [disabled]="miFormulario.invalid"
+                            class="btn btn-success float-end"
+                            style=" box-shadow: 0px 0px 3px 4px rgba(0.21, 0.21, 0.21, 0.21), 0px 0px 3px 4px rgba(0.24, 0.24, 0.24, 0.24)">
+
+                            Guardar
+                        </button>
+                    </div>
+                </div>
+               
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<div style="margin-left: 5px;">
+
+    <h5> Formulario Válido </h5>
+    <pre>{{ miFormulario.valid}}</pre>
+
+    <h5> Pristine </h5>
+    <pre>{{ miFormulario.pristine}}</pre>
+
+    <h5> Touched </h5>
+    <pre>{{ miFormulario.touched}}</pre>
+
+    <h5> Valor del Formulario </h5>
+    <pre>{{ miFormulario.value | json}}</pre>
+
+</div>

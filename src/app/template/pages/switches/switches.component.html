@@ -1,0 +1,160 @@
+<h2> Template: Dinámicos </h2>
+<hr>
+
+<div class="row">
+
+    <div class="col">
+
+        <form #miFormulario="ngForm">
+
+            <!-- Radios -->
+
+            <div class="row mb-3">
+
+                <label class="col-sm-3 col-form-label"> Género* </label>
+
+                <div class="col-sm-9 radio-item">
+
+                    <div class="form-check ">
+
+                        <input 
+                            class="form-check-input" 
+                            type="radio"
+                            value="masculino"
+                            [(ngModel)]="persona.genero"
+                            name="genero" 
+                            id="radioMaculino"
+                            required
+                        >
+                        <label class="form-check-label" for="radioMaculino">
+                         
+                            Masculino
+                        </label>
+
+                    </div>
+
+                    <div class="form-check">
+
+                        <input 
+                        
+                            class="form-check-input" 
+                            type="radio"
+                            value="femenino"
+                            [(ngModel)]="persona.genero" 
+                            name="genero" 
+                            id="radioFemenino"
+                            required
+                        >
+                        <label class="form-check-label" for="radioFemenino">
+                         
+                            Femenino
+                        </label>
+                    
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Switches -->
+
+            <div class="row mb-3">
+
+                <label class="col-sm-3 col-form-label"> Notificaciones </label>
+
+                <div class="col-sm-9 switch-item">
+
+                    <div class="form-check form-switch mt-2">
+
+                        <input 
+
+                            class="form-check-input" 
+                            type="checkbox" 
+                            role="switch"
+                            [(ngModel)]="persona.notificaciones" 
+                            name="notificaciones" 
+                            id="notificacionesSwtich"
+                            onclick="blur()"
+                        >
+                        <label
+
+                            class="form-check-label" 
+                            for="notificacionesSwtich">
+                            
+                            Deseo recibir notificaciones
+                        
+                        </label>
+                
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Checkbox -->
+
+            <div class="row mb-3">
+
+                <label class="col-sm-3 col-form-label"></label>
+
+                <div class="col-sm-9 check-item">
+
+                    <div class="form-check">
+                        
+                        <input 
+                            class="form-check-input" 
+                            type="checkbox" 
+                            [(ngModel)]="terminosCondiciones" 
+                            name="terminos" 
+                            id="flexCheckDefault"
+                            onclick="blur()"
+                            required
+                        >
+                        <label
+                            class="form-check-label" 
+                            for="flexCheckDefault">
+
+                            Términos y condiciones de uso*
+
+                        </label>
+                    </div>
+
+                </div>
+
+                <div class="row" style="margin-top: 15px; margin-bottom: 10px;">
+                    <div class="col">
+    
+                        <button 
+    
+                            type="button"
+                            [disabled]="miFormulario.invalid"
+                            class="btn btn-info float-end"
+                            id="boton-switches"
+                            (click)="guardar(miFormulario)"
+                        >
+    
+                            Guardar
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </form>
+
+    <div>
+
+</div>
+
+<div style="margin-left: 5px;">
+    
+    <h5> Valor del Formulario</h5>
+    <pre>{{ miFormulario.value | json }}</pre>
+
+    <h5> Persona </h5>
+    <pre> {{persona | json}} </pre>
+
+    <h5> Formulario Válido </h5>
+    <pre> {{miFormulario.valid}} </pre>
+
+</div>

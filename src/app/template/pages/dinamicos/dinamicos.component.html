@@ -1,0 +1,152 @@
+<h2> Template: Dinámicos </h2>
+<hr>
+
+<div class="row mb-4">
+
+    <div class="col">
+
+        <form 
+            (ngSubmit)="guardar(miFormulario)"
+            autocomplete="off"
+            #miFormulario="ngForm"
+        > 
+            <!-- Campo nombre -->
+
+            <div class="row mb-3">
+
+                <label class="col-sm-3 col-form-label text-center"> Nombre* </label>
+
+                <div class="col-sm-9">
+                    <input 
+                        type="text"
+                        placeholder="Nombre de la persona"
+                        name="nombre"
+                        [ngModel]="persona.nombre"
+                        class="form-control"
+                        id="input-dinamicos"
+                        required
+                    >
+                    <span 
+                        *ngIf="validatorService.validarCamposTemple(miFormulario, 'nombre', 'required')"
+                        class="form-text text-danger"> 
+
+                        El campo es obligatorio
+                    </span>
+                </div>
+            </div>
+
+            <!-- Campo Agregar juego favorito -->
+
+            <div class="row mb-3">
+
+                <label class="col-sm-3 col-form-label text-center"> Agregar </label>
+
+                <div class="col-sm-9">
+
+                    <div class="input-group">
+
+                        <input 
+                            type="text"
+                            placeholder="Agregar juego favorito"
+                            [(ngModel)]="nuevoJuego"
+                            name="nuevoJuego"
+                            class="form-control"
+                            id="input-dinamicos"
+                            (keyup.enter)="agregarJuego()"
+                        >
+                        <button
+                            type="button" 
+                            class="btn btn-outline-success"
+                            style="border-radius: 5px; margin-left: 1px;"
+                            id="button-input-dinamicos"
+                            (click)="agregarJuego()"> 
+                        
+                            Agregar
+                        </button>
+               
+                    </div>
+
+                    <span 
+                        *ngIf="persona.favoritos.length === 0 && miFormulario.controls['nuevoJuego']?.touched"
+                        class="form-text text-danger"> 
+
+                        Debe agregar al menos un juego favorito
+                    </span>
+                </div>
+            </div>
+
+            <!-- Listado juegos favoritos -->
+               
+            <div class="row mb-3">
+
+                <label class="col-sm-3 col-form-label text-center"> Favoritos* </label>
+
+                <div class="col-sm-9">
+
+                    <div 
+                        *ngFor="let juego of persona.favoritos; let i = index"
+                        class="input-group mb-2">
+
+                        <input
+                            type="text"
+                            [(ngModel)]="juego.nombre"
+                            name="favorito_{{i}}"
+                            class="form-control"
+                            id="input-dinamicos"
+                            required
+                        >
+
+                        <button
+                            type="button" 
+                            class="btn btn-outline-danger"
+                            style="border-radius: 5px; margin-left: 1px;"
+                            id="button-input-delete"
+                            (click)="eliminar(i)"> 
+                    
+                            Eliminar
+                        </button>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+
+                    <button 
+
+                        type="button"
+                        [disabled]="(miFormulario.invalid || persona.favoritos.length === 0)"
+                        class="btn btn-success float-end"
+                        id="boton-dinamicos"
+                        (click)="guardar(miFormulario)"
+                    >
+
+                        Guardar
+                    </button>
+                </div>
+            </div>
+
+
+        </form>
+    
+    </div>
+
+</div>
+
+<div style="margin-left: 5px;">
+
+    <h5> Valid </h5>
+    <pre>{{ miFormulario.valid}}</pre>
+
+    <h5> Pristine </h5>
+    <pre>{{ miFormulario.pristine}}</pre>
+
+    <h5> Touched </h5>
+    <pre>{{ miFormulario.touched}}</pre>
+
+    <h5> Value </h5>
+    <pre>{{ miFormulario.value | json}}</pre>
+
+</div>
