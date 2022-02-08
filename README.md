@@ -1,27 +1,33 @@
-# FormulariosApp
+# Formularios App.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.2.
+Esta aplicación permite observar la utilización de formularios reactivos y por temple en Angular.
 
-## Development server
+En la misma se han implementado validaciones síncronas para el control de la información ingresada en los campos. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Por ejemplo, que el nombre ingresado de la persona tenga formato de nombre y apellido, o que su correo presente un formato válido, o que la contraseña tenga cierta estructura, debiendo ser ingresada dos veces para cotejar su igualdad, o el rellenado de campos obligatorios, entre otras validaciones.
 
-## Code scaffolding
+También se implementan validaciones asíncronas, por ejemplo para cotejar que el correo ingresado no haya sido previamente registrado por otro usuario.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+En resumen, la aplicación muestra formularios básicos, dinámicos, switches y un formulario de registro.
 
-## Build
+### Notas:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Este proyecto fue generado con [Angular CLI] versión 13.0.2.
 
-## Running unit tests
+Recuerden reconstruir los módulos de Node:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+npm install
+```
 
-## Running end-to-end tests
+Y luego, para probar la app en desarrollo, ejecuten el siguiente comando:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```
+ng serve -o
+```
 
-## Further help
+Para construir el build, recuerden:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+ng build --configuration=production
+```
