@@ -17,7 +17,9 @@ export class RegistroComponent {
 
     nombre: ['', [ Validators.required, Validators.pattern(this.validatorService.nombreApellidoPatron) ] ],
 
-    email: ['', [ Validators.required, Validators.pattern(this.validatorService.emailPatron) ], [this.emailValidator] ],
+    // email: ['', [ Validators.required, Validators.pattern(this.validatorService.emailPatron) ], [this.emailValidator] ], -- Implementación de validación asíncrona.
+
+    email: ['', [ Validators.required, Validators.pattern(this.validatorService.emailPatron) ] ],
 
     username: ['', [Validators.required, this.validatorService.noShijonage] ],
 
