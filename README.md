@@ -10,6 +10,8 @@ También se implementan validaciones asíncronas, por ejemplo para cotejar que e
 
 En resumen, la aplicación muestra formularios básicos, dinámicos, switches y un formulario de registro.
 
+Pueden visitar la App haciendo click en este link: https://awesome-poincare-219909.netlify.app
+
 ### Notas:
 
 Este proyecto fue generado con [Angular CLI] versión 13.0.2.
