@@ -10,7 +10,7 @@ También se implementan validaciones asíncronas, por ejemplo para cotejar que e
 
 En resumen, la aplicación muestra formularios básicos, dinámicos, switches y un formulario de registro.
 
-Pueden visitar la App haciendo click en este link: https://formularios-app-gdp.netlify.app/auth/registro
+Pueden visitar la App haciendo click en este link: https://formularios-app-gdp.netlify.app
 
 ### Notas:
 
